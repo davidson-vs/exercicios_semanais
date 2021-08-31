@@ -31,9 +31,9 @@ void ordenar(LISTA *l)
 {
     int i, j;
     REGISTRO temp;
-    for (i = 0; i < l->nroElem + 1; i++)
+    for (i = 0; i < l->nroElem; i++)
     {
-        for (j = 0; j < l->nroElem + 1; j++)
+        for (j = 0; j < l->nroElem; j++)
         {
             if (l->A[j].chave > l->A[j + 1].chave)
             {
