@@ -189,6 +189,12 @@ bool inserirElemListaOrd(LISTA *l, REGISTRO reg)
     if (ant == NULL)
     { // o novo elemento serah o 1o da lista
         i->prox = l->inicio;
+        i->ant = NULL;
+        if (l->inicio != NULL)
+        {
+            l->inicio->ant = i;
+        }
+
         l->inicio = i;
     }
 
@@ -200,10 +206,9 @@ bool inserirElemListaOrd(LISTA *l, REGISTRO reg)
     }
     else
     {
-        i->prox = -1;
+        i->prox = NULL;
         i->ant = i;
     }
-
     return true;
 } /* inserirElemListaOrd */
 
