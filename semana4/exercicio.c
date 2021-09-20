@@ -198,16 +198,17 @@ bool inserirElemListaOrd(LISTA *l, REGISTRO reg)
         l->inicio = i;
     }
 
-    else if (i->prox != NULL)
+    else
     { // inserção após um elemento já existente
 
         i->prox = ant->prox;
+        i->ant = ant;
+        if (i->prox != NULL && i->prox->ant != NULL)
+        {
+            i->prox->ant = i;
+        }
+
         ant->prox = i;
-    }
-    else
-    {
-        i->prox = NULL;
-        i->ant = i;
     }
     return true;
 } /* inserirElemListaOrd */
